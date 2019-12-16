@@ -10,4 +10,4 @@
 - `mvn clean spring-boot:run`
 
 #### Testing
-- `mvn clean test -Dtest=TradeSuite`
+- `mvn clean test -Dtest=TestSuite`
