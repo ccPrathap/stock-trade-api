@@ -12,3 +12,4 @@
 #### Testing
 - `mvn clean test -Dtest=TestSuite`
 ---
+![](/results/TestResults.png)
