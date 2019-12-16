@@ -1,7 +1,6 @@
 package com.hackerrank.stocktrade.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,8 +31,7 @@ public class TradeService {
 	}
 
 	public List<Trade> findAllTradesByUserId(Long id) {
-		List<Trade> trades = tradeRepository.findAll();
-		return trades.stream().filter(trade -> id.equals(trade.getUser().getId())).collect(Collectors.toList());
+		return tradeRepository.findByUserId(id);
 	}
 
 	public List<Trade> findAllTradesByStockSymbol(String symbol) {
@@ -41,8 +39,7 @@ public class TradeService {
 	}
 
 	public List<Trade> findAllTradesByUserIdAndStockId(Long id, String symbol) {
-		List<Trade> trades = tradeRepository.findBySymbol(symbol);
-		return trades.stream().filter(trade -> id.equals(trade.getUser().getId())).collect(Collectors.toList());
+		return tradeRepository.findBySymbolAndUserId(symbol, id);
 	}
 
 }
